@@ -2,9 +2,10 @@ const input = document.querySelector('#myInput');
 
 const allBtnArray = Array.from(document.querySelectorAll('.calBtn'));
 const numBtnArray = allBtnArray.filter(btn=>!isNaN(btn.innerHTML)&&btn.innerHTML!='');
-const operatorBtnArray = allBtnArray.filter(btn=>isNaN(btn.innerHTML)&&btn.innerHTML!=''&&btn.innerHTML!=='=');
+const operatorBtnArray = allBtnArray.filter(btn=>isNaN(btn.innerHTML)&&btn.innerHTML!=''&&btn.innerHTML!=='='&&btn.innerHTML!=='C');
 
 const equalsBtn = document.getElementById('equalsBtn');
+const clearBtn = document.getElementById('clearBtn');
 let evalStr = '';
 
 numBtnArray.map((btn)=>{
@@ -32,4 +33,11 @@ equalsBtn.addEventListener('click',()=>{
     input.value = '';
     result.innerHTML = eval(evalStr);
     evalStr = '';
+})
+
+clearBtn.addEventListener('click',()=>{
+    result.innerHTML = '';
+    input.value = '';
+    evalStr = '';
+    
 })
